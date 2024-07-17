@@ -21,7 +21,7 @@ public class PhoneBookApp {
 		System.out.println("*          전화번호 관리 프로그램          *");
 		System.out.println("***************************************");
 		System.out.println("");
-		
+
 		Scanner sc = new Scanner(System.in);
 		List<Person> pArray = new ArrayList<Person>();
 
@@ -128,14 +128,17 @@ public class PhoneBookApp {
 					}
 				}
 				System.out.println("");
-			}
-
-			else {
+			} else if (menu == 5) {
 				System.out.println("");
 				System.out.println("***************************************");
 				System.out.println("*              감사합니다               *");
 				System.out.println("***************************************");
 				break;
+			}
+
+			else {
+				System.out.println("[다시 입력해 주세요.]");
+				System.out.println("");
 			}
 
 		}
