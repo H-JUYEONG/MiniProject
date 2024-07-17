@@ -103,7 +103,7 @@ public class PhoneBookApp {
 				System.out.println("[삭제되었습니다.]");
 				System.out.println("");
 
-				// 파일 쓰기 -> 입력한 정보를 추가
+				// 파일 쓰기 -> 삭제하고 남은 list로 메모장 내용 새로 쓰기
 				OutputStream out = new FileOutputStream("C:\\javaStudy\\PhoneDB.txt", false); // 이어쓰기 안하고 내용 새로 쓰기
 				OutputStreamWriter osw = new OutputStreamWriter(out, "UTF-8");
 				BufferedWriter bw = new BufferedWriter(osw);
