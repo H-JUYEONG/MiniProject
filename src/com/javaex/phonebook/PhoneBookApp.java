@@ -35,6 +35,7 @@ public class PhoneBookApp {
 
 			if (str == null) {
 				break;
+				// text = false;
 			}
 
 			String[] db = str.split(",");
@@ -47,16 +48,18 @@ public class PhoneBookApp {
 			pArray.add(person);
 		}
 		br.close();
+		
+		boolean menu = true;
 
-		while (true) {
+		while (menu) {
 			System.out.println("1.리스트  2.등록  3.삭제  4.검색  5.종료");
 			System.out.println("---------------------------------------");
 
 			System.out.print(">메뉴번호: ");
-			int menu = sc.nextInt();
+			int num = sc.nextInt();
 			sc.nextLine(); // 숫자 -> 문자 입력 오류 방지
 
-			if (menu == 1) {
+			if (num == 1) {
 				System.out.println("<1.리스트>");
 				for (int i = 0; i < pArray.size(); i++) {
 					System.out.print((i + 1) + ". ");
@@ -65,7 +68,7 @@ public class PhoneBookApp {
 
 				System.out.println("");
 
-			} else if (menu == 2) { // 입력받은 정보를 ArrayList에 저장
+			} else if (num == 2) { // 입력받은 정보를 ArrayList에 저장
 				System.out.println("<2.등록>");
 				System.out.print("이름: ");
 				String name = sc.nextLine();
@@ -93,7 +96,7 @@ public class PhoneBookApp {
 				bw.flush();
 				bw.close();
 
-			} else if (menu == 3) {
+			} else if (num == 3) {
 				System.out.println("<3.삭제>");
 				System.out.print(">번호: ");
 				int delete = sc.nextInt();
@@ -116,7 +119,7 @@ public class PhoneBookApp {
 				bw.flush();
 				bw.close();
 
-			} else if (menu == 4) {
+			} else if (num == 4) {
 				System.out.println("<4.검색>");
 				System.out.print(">이름: ");
 				String search = sc.nextLine();
@@ -128,12 +131,12 @@ public class PhoneBookApp {
 					}
 				}
 				System.out.println("");
-			} else if (menu == 5) {
+			} else if (num == 5) {
 				System.out.println("");
 				System.out.println("***************************************");
 				System.out.println("*              감사합니다               *");
 				System.out.println("***************************************");
-				break;
+				menu = false;
 			}
 
 			else {
