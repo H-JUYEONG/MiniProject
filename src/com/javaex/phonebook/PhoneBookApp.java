@@ -47,7 +47,7 @@ public class PhoneBookApp {
 			pList.add(person);
 		}
 		br.close();
-		
+
 		boolean menu = true;
 
 		while (menu) {
@@ -120,16 +120,25 @@ public class PhoneBookApp {
 
 			} else if (num == 4) {
 				System.out.println("<4.검색>");
-				System.out.print(">이름: ");
-				String search = sc.nextLine();
+				while (true) {
+					System.out.print(">이름: ");
+					String search = sc.nextLine();
 
-				for (Person person : pList) {
-					if (person.getName().contains(search)) {
-						System.out.print(pList.indexOf(person) + 1 + ". ");
-						person.showInfo();
+					boolean found = false; // 검색 결과가 있는지 여부를 나타내는 변수
+					for (Person person : pList) {
+						if (person.getName().contains(search)) {
+							System.out.print(pList.indexOf(person) + 1 + ". ");
+							person.showInfo();
+							found = true; // 검색된 결과가 있음을 나타냄
+						}
+					}
+					if (found) {
+						System.out.println("");
+						break; // 검색된 결과가 있으면 while 루프를 빠져나감
+					} else {
+						System.out.println("[다시 입력해주세요.]");
 					}
 				}
-				System.out.println("");
 			} else if (num == 5) {
 				System.out.println("");
 				System.out.println("***************************************");
