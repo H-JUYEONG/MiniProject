@@ -35,7 +35,6 @@ public class PhoneBookApp {
 
 			if (str == null) {
 				break;
-				// text = false;
 			}
 
 			String[] db = str.split(",");
