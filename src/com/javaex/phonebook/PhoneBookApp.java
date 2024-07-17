@@ -23,7 +23,7 @@ public class PhoneBookApp {
 		System.out.println("");
 
 		Scanner sc = new Scanner(System.in);
-		List<Person> pArray = new ArrayList<Person>();
+		List<Person> pList = new ArrayList<Person>();
 
 		// 파일 읽기
 		InputStream in = new FileInputStream("C:\\javaStudy\\PhoneDB.txt");
@@ -45,7 +45,7 @@ public class PhoneBookApp {
 			String company = db[2];
 
 			Person person = new Person(name, hp, company);
-			pArray.add(person);
+			pList.add(person);
 		}
 		br.close();
 		
@@ -61,9 +61,9 @@ public class PhoneBookApp {
 
 			if (num == 1) {
 				System.out.println("<1.리스트>");
-				for (int i = 0; i < pArray.size(); i++) {
+				for (int i = 0; i < pList.size(); i++) {
 					System.out.print((i + 1) + ". ");
-					pArray.get(i).showInfo();
+					pList.get(i).showInfo();
 				}
 
 				System.out.println("");
@@ -83,7 +83,7 @@ public class PhoneBookApp {
 				System.out.println("");
 
 				Person person = new Person(name, hp, company);
-				pArray.add(person);
+				pList.add(person);
 
 				// 파일 쓰기 -> 입력한 정보를 추가
 				OutputStream out = new FileOutputStream("C:\\javaStudy\\PhoneDB.txt", true); // 기존 내용에 이어쓰기
@@ -111,8 +111,8 @@ public class PhoneBookApp {
 				OutputStreamWriter osw = new OutputStreamWriter(out, "UTF-8");
 				BufferedWriter bw = new BufferedWriter(osw);
 
-				for (int i = 0; i < pArray.size(); i++) {
-					bw.write(pArray.get(i).getName() + "," + pArray.get(i).getHp() + "," + pArray.get(i).getCompany());
+				for (int i = 0; i < pList.size(); i++) {
+					bw.write(pList.get(i).getName() + "," + pList.get(i).getHp() + "," + pList.get(i).getCompany());
 					bw.newLine();
 				}
 
@@ -124,9 +124,9 @@ public class PhoneBookApp {
 				System.out.print(">이름: ");
 				String search = sc.nextLine();
 
-				for (Person person : pArray) {
+				for (Person person : pList) {
 					if (person.getName().contains(search)) {
-						System.out.print(pArray.indexOf(person) + 1 + ". ");
+						System.out.print(pList.indexOf(person) + 1 + ". ");
 						person.showInfo();
 					}
 				}
