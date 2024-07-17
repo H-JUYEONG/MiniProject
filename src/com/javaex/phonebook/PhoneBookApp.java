@@ -101,7 +101,7 @@ public class PhoneBookApp {
 				System.out.print(">번호: ");
 				int delete = sc.nextInt();
 
-				pArray.remove(delete - 1); // 배열은 0부터 시작하기때문에 -1 필요
+				pList.remove(delete - 1); // 배열은 0부터 시작하기때문에 -1 필요
 
 				System.out.println("[삭제되었습니다.]");
 				System.out.println("");
